@@ -5,7 +5,6 @@ test("Eur/PLN", async () => {
     "http://api.nbp.pl/api/exchangerates/rates/a/eur/"
   );
   const data: ICurrencyResponse = await response.json();
-
   console.log(data);
 });
 
@@ -14,7 +13,6 @@ test("USD/PLN", async () => {
     "http://api.nbp.pl/api/exchangerates/rates/a/usd/"
   );
   const data: ICurrencyResponse = await response.json();
-
   console.log(data);
 });
 
