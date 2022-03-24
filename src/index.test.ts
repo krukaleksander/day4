@@ -16,7 +16,7 @@ test.skip("USD/PLN", async () => {
   console.log(data);
 });
 
-test("difference between today EUR/PLN rate and month before", async () => {
+test.skip("difference between today EUR/PLN rate and month before", async () => {
   const responseToday = await fetch(
     "http://api.nbp.pl/api/exchangerates/rates/a/eur/2022-03-23/"
   );
@@ -39,14 +39,22 @@ test("difference between today EUR/PLN rate and month before", async () => {
   console.log(difference);
 });
 
+test.skip("quicktype generates types from api", async () => {
+  const response = await fetch(
+    "http://api.nbp.pl/api/exchangerates/rates/a/usd/"
+  );
+  const data: ICurrencyResponse = await response.json();
+  console.log(data);
+});
+
 interface ICurrencyResponse {
   table: string;
   currency: string;
   code: string;
-  rates: IRatesArray[];
+  rates: IRate[];
 }
 
-interface IRatesArray {
+interface IRate {
   no: string;
   effectiveDate: string;
   mid: number;
