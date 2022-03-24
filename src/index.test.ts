@@ -48,9 +48,9 @@ test.skip("quicktype generates types from api", async () => {
 });
 
 interface ICurrencyResponse {
-  table: string;
+  table: TableName;
   currency: string;
-  code: string;
+  code: CurrencyCode;
   rates: IRate[];
 }
 
@@ -65,3 +65,6 @@ interface IDifferenceInRates {
   agoRate: number;
   difference: number;
 }
+
+type CurrencyCode = "EUR" | "USD";
+type TableName = "A" | "B" | "C";
